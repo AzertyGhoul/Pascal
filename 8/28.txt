@@ -1,0 +1,58 @@
+program p8_ch2t8;
+type
+    matrix = array of array of integer;
+var
+  i, j, n,randomRange: integer;
+  A: array of array of integer;
+  B, C: array of integer;
+  
+  procedure Matris(matrix: matrix);
+        begin
+            for i := 0 to n - 1 do
+                begin
+                    for j := 0 to n - 1 do
+                        write(matrix[i, j], ' ');
+                    writeln();
+                end;
+            writeln();
+        end;
+  
+begin
+  randomize;
+ 
+  writeln('Порядок матрицы');
+  read(n);
+  
+  setlength(A, N, N);
+  setlength(B,N*2);
+  setlength(C,N*2);
+  
+  writeln();
+  
+  writeln('Предел рандома = ');
+  read(randomRange);
+  
+  writeln();
+  
+  for i := 0 to n - 1 do
+        for j := 0 to n - 1 do
+            begin
+                A[i, j] := random(randomRange+1);
+            end;
+            
+  Matris(A);
+  
+  writeln('Вектор ');
+  for i := 1 to n do begin
+    b[i] := random(randomRange+1);
+    write(b[i]:2);
+  end;
+  writeln();
+  writeln();
+  writeln('Произведение A^2 x B:');
+  for j := 0 to n-1 do begin
+    for i := 0 to n-1 do
+      c[j] := b[i] * sqr(a[i, j]);
+      write(c[j]:3)
+  end
+end.

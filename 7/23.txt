@@ -1,0 +1,18 @@
+var s,s1:string;
+    k:byte;
+begin
+writeln('Введите строку из слов разделенных пробелами');
+readln(s);
+
+s:=s+' ';
+k:=0;
+
+    while pos(' ',s)>0 do
+     begin
+      s1:=copy(s,1,pos(' ',s)-1);
+      if s1[1]=s1[length(s1)] then inc(k);
+      delete(s,1,pos(' ',s));
+     end;
+     
+write('Количество слов с одинаковыми первой и последней буквами=',k)
+end.

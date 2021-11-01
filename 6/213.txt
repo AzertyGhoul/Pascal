@@ -1,0 +1,39 @@
+program p6_ch2t13;
+uses crt;
+Var
+a:array of integer; 
+i: byte; 
+c,m,n,d: integer;
+    procedure text(m:string);
+            begin
+                writeln('********* ***************** ************* **** ');
+                writeln();
+                writeln('*                 Программа                   *');
+                writeln();
+                writeln('*                 ',m,'                      *');
+                writeln();
+                writeln('*      Автор:Некрасов Алексей Викторович      *');
+                writeln();
+                writeln('******** **** **************** *************** ');
+            end;
+begin
+ text('p6_ch2t13');
+ randomize;
+ writeln('Размер массива');
+ read(n);
+ setlength(a,n);
+ writeln('Размер рандома');
+ read(d);
+ m:= 1;
+    for i:=1 to n-1 do
+        begin
+            a[i]:=random(d);
+        end;
+    for i:= 1 to n-1 do
+        begin
+            if odd(i) then
+                m:= m * a[i];
+                write(a[i]:2);
+        end;
+    writeln(' m = ',m );
+end.

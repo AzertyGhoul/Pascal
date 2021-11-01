@@ -1,0 +1,59 @@
+program p6_c2t3;
+
+
+var
+a: array[1..10] of integer;
+i: integer;
+usl1,usl2: boolean;
+
+procedure text(m:string);
+        begin
+            writeln('********* ***************** ************* **** ');
+            writeln();
+            writeln('*                 Программа                   *');
+            writeln();
+            writeln('*                 ',m,'                      *');
+            writeln();
+            writeln('*      Автор:Некрасов Алексей Викторович      *');
+            writeln();
+            writeln('******** **** **************** *************** ');
+        end;
+        
+begin
+randomize;
+usl1:=false;
+usl2:=false;
+text('p6_c2t3');
+for i := 1 to 10 do
+    begin
+        a[i]:=random(2);
+        write(a[i]:2);
+    end;
+
+for i := 1 to 9 do
+  if (a[i] = a[1]) and (a[i+1] = a[1]) then 
+    usl1:=true;
+
+for i := 1 to 8 do
+  if (a[i] = a[1]) and (a[i+1] = a[1]) and (a[i+2] = a[1]) then
+    usl2:=true;
+
+if usl2 then
+    begin
+        writeln();
+        writeln('FALSE');
+    end;
+  
+if (usl1=true) and (usl2=false) then
+    begin
+        writeln();
+        writeln('TRUE');
+    end;
+
+if (usl1=false) and (usl2=false) then
+    begin
+        writeln();
+        writeln('FALSE');
+    end;
+
+end.

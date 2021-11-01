@@ -1,0 +1,29 @@
+program p5_t3;
+
+var 
+    s,t: real;
+
+    procedure text(m:string);
+        begin
+            writeln('********* ***************** ************* **** ');
+            writeln();
+            writeln('*                 Программа                   *');
+            writeln();
+            writeln('*                 ',m,'                      *');
+            writeln();
+            writeln('*      Автор:Некрасов Алексей Викторович      *');
+            writeln();
+            writeln('******** **** **************** *************** ');
+        end;
+        
+    function some(a,b,c: real):real;
+        begin
+            some := (a + 2 * b) / (a + c);
+        end;
+
+
+begin
+    text('p5_t3')
+    read(s, t);
+    writeln(some(t, s + t, -7) + some(3, s - t, 0.5 * s):0:2);
+end.

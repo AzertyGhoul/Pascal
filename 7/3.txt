@@ -1,0 +1,11 @@
+program p7_t3;
+var 
+    a: string;
+    b,i: integer;
+begin
+read(a);
+ for i:=1 to length(a) do
+    if a[i] = 'a' then
+        b:= b + 1;
+ write(b)
+end.

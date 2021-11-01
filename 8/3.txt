@@ -1,0 +1,66 @@
+program p8_t3;
+type
+    matrix = array of array of integer;
+var
+    randomRange, row, column, N,i: integer;
+    A: array of array of integer;
+    vector: array [1..10] of integer;
+    
+    procedure renderMatrix(matrix: matrix);
+        begin
+            for row := 0 to n - 1 do
+                begin
+                    for column := 0 to n - 1 do
+                        write(matrix[row, column], ' ');
+                    writeln();
+                end;
+            writeln();
+        end;
+    
+begin
+    randomize();
+    
+    writeln();
+    
+    write('Порядок матрицы = ');
+    read(N);
+    
+    write('Размер рандома = ');
+    read(randomRange);
+    
+    setlength(A, N, N);
+    
+    writeln();
+    
+    for i:= 1 to 10 do
+        begin
+            vector[i]:= random(randomRange+1);
+            write(vector[i]:2);
+        end;
+    
+        writeln();
+        writeln();
+    
+    for row := 0 to n - 1 do
+        for column := 0 to n - 1 do
+            begin
+                A[row, column] := random(randomRange+1);
+            end;
+            
+            writeln('Матрица до обработки ');
+            
+            renderMatrix(A);
+            
+    for row := 0 to n - 1 do
+        for column := 0 to n - 1 do
+            if not(odd(row+column)) then
+                for i:= 1 to 10 do
+                    begin
+                        if vector[i] = A[row,column] then
+                            A[row,column] := 0;
+                    end;
+                    
+    writeln('Матрица после обработки ');
+    
+    renderMatrix(A);
+end.

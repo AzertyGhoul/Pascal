@@ -1,0 +1,26 @@
+program p1_12;
+var
+    sentence, shortest, tmp: string;
+    counter, i: integer;
+
+begin
+    read(sentence);
+
+    sentence := sentence + ' ';
+    shortest := sentence;
+    tmp := '';
+
+    for i := 1 to length(sentence) do
+        begin
+            tmp := tmp + sentence[i];
+
+            if sentence[i] = ' ' then
+                begin
+                    if length(shortest) > length(tmp) then
+                        shortest := tmp;
+                    tmp := '';
+                end;
+        end;
+    writeln;
+    write('result = ', shortest);
+end.

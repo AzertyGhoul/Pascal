@@ -1,0 +1,33 @@
+program p6_t13;
+uses crt;
+Var
+a:array [1..10] of integer; 
+i: byte; 
+c,m: integer;
+    procedure text(m:string);
+            begin
+                writeln('********* ***************** ************* **** ');
+                writeln();
+                writeln('*                 Программа                   *');
+                writeln();
+                writeln('*                 ',m,'                      *');
+                writeln();
+                writeln('*      Автор:Некрасов Алексей Викторович      *');
+                writeln();
+                writeln('******** **** **************** *************** ');
+            end;
+begin
+ text('p6_t13');
+ randomize; 
+    for i:=1 to 10 do
+        begin
+            a[i]:=random(10);
+        end;
+    for i:= 1 to 10 do
+        begin
+            if a[i] < 2 then
+                a[i] := m;
+                write(a[i]:2);
+                writeln(m:2);
+        end;
+end.

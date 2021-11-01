@@ -1,0 +1,33 @@
+program p6_t3; 
+uses crt; 
+Var
+a:array [1..10] of integer; 
+i: byte; 
+m,c: integer;
+	procedure text(m:string);
+        begin
+            writeln('********* ***************** ************* **** ');
+            writeln();
+            writeln('*                 Программа                   *');
+            writeln();
+            writeln('*                 ',m,'                      *');
+            writeln();
+            writeln('*      Автор:Некрасов Алексей Викторович      *');
+            writeln();
+            writeln('******** **** **************** *************** ');
+        end;
+begin
+	text('p6_t3');
+ randomize; 
+    for i:=1 to 10 do
+        begin
+            a[i]:=random(10);
+            write(a[i]:2);
+        end;
+    for i:=1 to 10 do 
+        begin
+            if (a[i] mod 2=0) and ((a[i] div 2) mod 2 <> 0) then
+                writeln('chislo = ', a[i]);
+        end;
+    end.
+end.

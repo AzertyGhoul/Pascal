@@ -1,0 +1,37 @@
+program p5_t12;
+
+var 
+    n,i,z,x: integer;
+    c: boolean;
+
+    procedure text(m:string);
+        begin
+            writeln('********* ***************** ************* **** ');
+            writeln();
+            writeln('*                 Программа                   *');
+            writeln();
+            writeln('*                 ',m,'                      *');
+            writeln();
+            writeln('*      Автор:Некрасов Алексей Викторович      *');
+            writeln();
+            writeln('******** **** **************** *************** ');
+        end;
+        
+    procedure fullsqr(item:integer; var result:boolean);
+        begin
+            if item / sqrt(item) = sqrt(item) then
+                result := true
+            else
+                result := false
+        end;
+        
+        
+begin
+    text('p5_t12');
+    read(n);
+        for i:=1 to n do
+            for z:= 1 to i do
+                for x:=1 to z do
+                    if x*x + z*z = i then
+                        writeln(i);
+end.

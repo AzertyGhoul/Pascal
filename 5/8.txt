@@ -1,0 +1,38 @@
+program p5_t8;
+
+var 
+    a,b,c: real;
+
+    procedure text(m:string);
+        begin
+            writeln('********* ***************** ************* **** ');
+            writeln();
+            writeln('*                 Программа                   *');
+            writeln();
+            writeln('*                 ',m,'                      *');
+            writeln();
+            writeln('*      Автор:Некрасов Алексей Викторович      *');
+            writeln();
+            writeln('******** **** **************** *************** ');
+        end;
+        
+        
+    function min(a,b: real):real;
+        begin
+            if a > b then
+                min := b
+            else
+                min := a
+        end;
+
+    function some(a,b,c: real):real;
+        begin
+            some := (min(c, a - b) + min(b, a + 2 * c)) / (100 - min(a + c, 2 * b));
+        end;
+        
+begin
+    text('p5_t8);
+    write('Введите значение для A,B,C : ');
+    read(a, b, c);
+    writeln(some(a,b,c):0:2);
+end.

@@ -1,0 +1,23 @@
+program Hello;
+
+var
+    a:string;
+    i,b,c:integer;
+    
+begin
+ read(a);
+        
+    for i:= 1 to length(a) do
+        begin
+            if a[i] = '(' then
+            b:= i;
+                if a[i] = ')' then
+                    begin
+                        c:= i-b+1;
+                        writeln('b = ', b, ' c = ', c);
+                        delete(a,b,c);
+                    end;
+        end;
+        
+    writeln(a);
+end.
