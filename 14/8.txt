@@ -12,7 +12,7 @@ Var
     setListRangeL,setListRangeE,i,randomRange:integer;
     
     procedure deleteList(var ReL,ReE:PList);
-        var HeadE,HeadL,RepeatE,RepeatL,x:PList;
+        var resultList:PList;
             i,a,counter:integer;
             SpisokE,SpisokL,result: array [1..100] of integer;
         begin
@@ -42,11 +42,22 @@ Var
                                 SpisokE[a]:= 0
                             end;
                     end;
-            
-            writeln('Измененный список Е');
-            for i:= 1 to setListRangeL do
+                    
+            for i:=1 to setListRangeL do
                 if SpisokE[i] <> 0 then
-                    write(SpisokE[i]:2);
+                    begin
+                        new(resultList);
+                        resultList^.Data:= SpisokE[i];
+                        resultList^.Next:= ReE;
+                        ReE:= resultList;
+                    end;
+                
+            writeln('Измененный список Е');
+            while resultList <> nil do
+            begin
+                write(' ',resultList^.Data);
+                resultList:= resultList^.next;
+            end;        
                     
         end;
     
