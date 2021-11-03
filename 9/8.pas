@@ -11,6 +11,7 @@ begin
   
   setlength(a,5);
   
+  writeln('Введите последовательность из 5 цифр');
   for i:= 0 to 4 do
     begin 
       read(z);

@@ -1,4 +1,4 @@
-program p1_12;
+program p7_ch2t13;
 var
     sentence, shortest, tmp: string;
     counter, i: integer;
