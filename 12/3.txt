@@ -1,0 +1,19 @@
+uses graphABC;
+begin 
+rectangle(100,100,600,400);
+setbrushstyle(bsSolid);
+setpenwidth(5);
+setbrushstyle(bsClear);
+setwindowwidth(700);
+setwindowheight(500);
+setpencolor(clblue);
+circle(230,200,60);
+setpencolor(clbrown);
+circle(350,200,60);
+setpencolor(clred);
+circle(470,200,60);
+setpencolor(clyellow);
+circle(290,260,60);
+setpencolor(clgreen);
+circle(410,260,60);
+end.

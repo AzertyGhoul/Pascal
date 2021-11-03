@@ -1,0 +1,72 @@
+program p14_t3;
+
+type 
+ PList = ^TList;
+ TList = record
+    Data : integer;
+    Next : PList;
+end;
+
+Var
+    Head, x,list,listLast : PList;
+    setListRangeL,i,randomRange:integer;
+    
+    function arithmetic(srarfm:PList):integer;
+        var count,sumist: integer;
+            sum:real;
+        begin
+            sum:=0;
+            sumist:=0;
+            count:= 0;
+            while srarfm <> nil do
+                begin
+                    sum := sum + srarfm^.Data;
+                    srarfm:= srarfm^.next;
+                    count:= count + 1;
+                end;
+            write(sum/count:0:2);
+        end;
+        
+    procedure addhead(var t:PList);
+       var y:PList;
+           i:integer;
+        begin
+            new(y);
+            readln(i);
+            y^.Data:= i;
+            y^.Next:= t;
+            t:= y;
+        end;
+    
+begin
+
+ randomize();
+ writeln('Задайте длину для своего списка');
+ read(setListRangeL);
+ writeln();
+
+
+    for i:=1 to setListRangeL do
+        addhead(Head);
+ listLast:= head;
+
+    if setListRangeL <> 0 then
+        begin
+            writeln('Ваш список');
+            while listLast <> nil do
+                begin
+                    write(' ',listLast^.Data);
+                    listLast:= listLast^.next;
+                end;
+        end
+    else
+        writeln('Список пустой');
+        
+    if setListRangeL <> 0 then
+        begin
+            writeln(); 
+            writeln();        
+            writeln('Среднее арифитеческое вашего списка');    
+            arithmetic(head);
+        end;
+end.

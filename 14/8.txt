@@ -1,0 +1,118 @@
+program p14_code_name_LAST;
+
+type 
+ PList = ^TList;
+ TList = record
+    Data : integer;
+    Next : PList;
+end;
+
+Var
+    HeadL,HeadE,listLastL,listLastE : PList;
+    setListRangeL,setListRangeE,i,randomRange:integer;
+    
+    procedure deleteList(var ReL,ReE:PList);
+        var HeadE,HeadL,RepeatE,RepeatL,x:PList;
+            i,a,counter:integer;
+            SpisokE,SpisokL,result: array [1..100] of integer;
+        begin
+            while ReE <> nil do
+                begin
+                    for i:= 1 to setListRangeE do
+                        begin
+                            SpisokE[i]:= ReE^.Data;
+                            ReE:= ReE^.Next;
+                        end;
+                end;
+                
+            while ReL <> nil do
+                begin
+                    for i:= 1 to setListRangeL do
+                        begin
+                            SpisokL[i]:= ReL^.Data;
+                            ReL:= ReL^.Next;
+                        end;
+                end;
+            
+            for i:=1 to setListRangeL do
+                for a:=1 to setListRangeE do
+                    begin
+                        if SpisokE[a] = SpisokL[i] then
+                            begin
+                                SpisokE[a]:= 0
+                            end;
+                    end;
+            
+            writeln('Измененный список Е');
+            for i:= 1 to setListRangeL do
+                if SpisokE[i] <> 0 then
+                    write(SpisokE[i]:2);
+                    
+        end;
+    
+    procedure addhead(var t:PList);
+       var y:PList;
+           i:integer;
+        begin
+            new(y);
+            readln(i);
+            y^.Data:= i;
+            y^.Next:= t;
+            t:= y;
+        end;
+    
+begin
+
+ randomize();
+ writeln('Задайте длину для списка L');
+ read(setListRangeL);
+ writeln();
+ 
+ writeln('Задайте длину для списка E');
+ read(setListRangeE);
+ writeln();
+
+    for i:=1 to setListRangeL do
+        begin
+            writeln('Введите элемент списка L');
+            addhead(HeadL);
+        end;
+        
+ writeln();        
+ listLastL:= HeadL;
+    
+     for i:=1 to setListRangeE do
+        begin
+            writeln('Введите элемент списка E');
+            addhead(HeadE);
+        end;
+ writeln();        
+ listLastE:= HeadE;
+
+    writeln('Список L');
+        while listLastL <> nil do
+            begin
+                write(' ',listLastL^.Data);
+                listLastL:= listLastL^.next;
+            end;
+
+    writeln();
+    writeln();
+        
+    writeln('Изначальный Список E');
+        while listLastE <> nil do
+            begin
+                write(' ',listLastE^.Data);
+                listLastE:= listLastE^.next;
+            end;
+
+    if (setListRangeE <> 0) and (setListRangeL <> 0) then
+        begin
+            writeln();
+            writeln();
+            deleteList(HeadL,HeadE);
+        end
+    else
+        writeln('Списки пустые');
+    
+end.

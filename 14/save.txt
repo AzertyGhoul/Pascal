@@ -1,0 +1,17 @@
+           writeln('Список L');
+           while ReL <> nil do
+                begin
+                    write(' ',ReL^.Data);
+                    ReL:= ReL^.next;
+                end;
+                
+            writeln();
+            writeln();
+            
+            writeln('Список E');
+            while ReE <> nil do
+                begin
+                    write(' ',ReE^.Data);
+                    ReE:= ReE^.next;
+                end;
+                
