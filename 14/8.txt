@@ -14,8 +14,13 @@ Var
     procedure deleteList(var ReL,ReE:PList);
         var resultList:PList;
             i,a,counter:integer;
-            SpisokE,SpisokL,result: array [1..100] of integer;
+            SpisokE,SpisokL,result: array of integer;
         begin
+        
+        setlength(SpisokE,setListRangeE);
+        setlength(SpisokL,setListRangeL);
+        setlength(result,setListRangeL);
+        
             while ReE <> nil do
                 begin
                     for i:= 1 to setListRangeE do
@@ -44,21 +49,25 @@ Var
                     end;
                     
             for i:=1 to setListRangeL do
+                begin
+                    if SpisokE[i] <> 0 then
+                        begin
+                            new(resultList);
+                            resultList^.Data:= SpisokE[i];
+                            resultList^.Next:= ReE;
+                            ReE:= resultList;
+                        end;
+                end;
+                
+            for i:=1 to setListRangeE do
                 if SpisokE[i] <> 0 then
                     begin
-                        new(resultList);
-                        resultList^.Data:= SpisokE[i];
-                        resultList^.Next:= ReE;
-                        ReE:= resultList;
+                        while resultList <> nil do
+                            begin
+                                write(' ',resultList^.Data);
+                                resultList:= resultList^.next;
+                            end;
                     end;
-                
-            writeln('Измененный список Е');
-            while resultList <> nil do
-            begin
-                write(' ',resultList^.Data);
-                resultList:= resultList^.next;
-            end;        
-                    
         end;
     
     procedure addhead(var t:PList);
@@ -85,7 +94,7 @@ begin
 
     for i:=1 to setListRangeL do
         begin
-            writeln('Введите элемент списка L');
+            writeln('Введите элемент списка L не равный нулю');
             addhead(HeadL);
         end;
         
@@ -94,33 +103,41 @@ begin
     
      for i:=1 to setListRangeE do
         begin
-            writeln('Введите элемент списка E');
+            writeln('Введите элемент списка E не равный нулю');
             addhead(HeadE);
         end;
  writeln();        
  listLastE:= HeadE;
-
-    writeln('Список L');
-        while listLastL <> nil do
-            begin
-                write(' ',listLastL^.Data);
-                listLastL:= listLastL^.next;
-            end;
+    
+    
+    if setListRangeL <> 0 then
+        begin
+            writeln('Список L');
+                while listLastL <> nil do
+                    begin
+                        write(' ',listLastL^.Data);
+                        listLastL:= listLastL^.next;
+                    end;
+        end;
 
     writeln();
     writeln();
-        
-    writeln('Изначальный Список E');
-        while listLastE <> nil do
-            begin
-                write(' ',listLastE^.Data);
-                listLastE:= listLastE^.next;
-            end;
-
+    
+    if setListRangeE <> 0 then
+        begin
+            writeln('Изначальный Список E');
+                while listLastE <> nil do
+                    begin
+                        write(' ',listLastE^.Data);
+                        listLastE:= listLastE^.next;
+                    end;
+        end;
+    
+    writeln();
+    writeln();
+    writeln('Измененный список Е'); 
     if (setListRangeE <> 0) and (setListRangeL <> 0) then
         begin
-            writeln();
-            writeln();
             deleteList(HeadL,HeadE);
         end
     else
