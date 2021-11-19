@@ -5,7 +5,7 @@ uses averageLib;
 var a,b,z,x:integer;
   
 begin
-write('Введите 2 катета прямоугольного треугольника ');
+write('Введите a и b ');
 readln(a,b);
 
   writeln();
