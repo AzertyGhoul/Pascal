@@ -9,7 +9,7 @@ write('Введите 2 катета прямоугольного треугол
 readln(a,b);
 
   writeln();
-  writeln(average(a,b):0:2); 
+  writeln(hypotenuse(a,b):0:2); 
   writeln();
-  writeln(averageGeom(a,b):0:2);
+  writeln(squareTriangle(a,b):0:2);
 end.
