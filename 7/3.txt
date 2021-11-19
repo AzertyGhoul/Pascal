@@ -1,11 +1,28 @@
 program p7_t3;
-var 
-    a: string;
-    b,i: integer;
+var
+    sentence: string;
+    i,max,maxproverka,tmp: integer;
+
 begin
-read(a);
- for i:=1 to length(a) do
-    if a[i] = 'a' then
-        b:= b + 1;
- write(b)
+    read(sentence);
+
+    sentence := sentence + ' ';
+    max:= 0;
+    tmp:= 0;
+    for i := 1 to length(sentence) do
+        begin
+            if sentence[i] = 'a' then
+                begin
+                    max:= max + 1;
+                    maxproverka:= tmp;   
+                end
+            else
+                begin
+                    if tmp < max then
+                        tmp:= max;
+                    max:=0
+                end;
+        end;
+    writeln;
+    write('result = ', maxproverka);
 end.
