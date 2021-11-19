@@ -25,22 +25,14 @@ begin
             if i = 0 then readln();
             writeln('Введите имя автора :');
             readln(Authorname);
-            books[i].Author:= Authorname;
-        end;
-    
-    writeln();
-    
-    for i := 0 to length(books) - 1 do
-        begin
+            books[i].Author:= Authorname;  
+            writeln();
+            
             writeln('Введите название книги :');
             readln(bookName);
-            books[i].Name:= bookName;
-        end;
-        
-    writeln();
-        
-    for i := 0 to length(books) - 1 do
-        begin
+            books[i].Name:= bookName;            
+            writeln();
+
             writeln('Введите год издания книги :');
             readln(bookYear);
             books[i].Year:= bookYear;
